@@ -1,0 +1,357 @@
+@define-color bg rgba(26, 27, 38, 0.95);
+@define-color module rgba(36, 40, 59, 0.95);
+
+@define-color fg #c0caf5;
+@define-color muted #565f89;
+
+@define-color blue #7aa2f7;
+@define-color cyan #7dcfff;
+@define-color purple #bb9af7;
+@define-color green #9ece6a;
+@define-color red #f7768e;
+@define-color yellow #e0af68;
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @fg;
+}
+
+/* =====================
+   DEFAULT MODULE STYLE
+===================== */
+
+#clock,
+#custom-arch,
+#workspaces,
+#media {
+    background: @module;
+    border-radius: 12px;
+    padding: 5px 12px;
+    margin: 6px 5px;
+    border: 1px solid transparent;
+    transition: all .25s ease;
+}
+
+/* =====================
+   RIGHT MODULE GROUP
+===================== */
+
+#pulseaudio,
+#pulseaudio-slider,
+#custom-microphone,
+#cpu,
+#memory,
+#custom-updates,
+#submap,
+#bluetooth,
+#network,
+#tray,
+#custom-notifications,
+#custom-power {
+    background: @module;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border: 1px solid transparent;
+    transition: all .25s ease;
+}
+
+/* Volume */
+
+#pulseaudio {
+    color: @cyan;
+    border-radius: 12px 0 0 12px;
+    padding: 5px 8px 5px 12px;
+    margin-left: 5px;
+}
+
+#pulseaudio-slider {
+    border-radius: 0;
+    padding: 0 12px 0 4px;
+}
+
+#pulseaudio-slider slider {
+    opacity: 0;
+}
+
+#pulseaudio-slider trough {
+    min-height: 8px;
+    min-width: 90px;
+    border-radius: 10px;
+    background: #414868;
+}
+
+#pulseaudio-slider highlight {
+    background: @blue;
+    border-radius: 10px;
+}
+
+/* Microphone */
+
+#custom-microphone {
+    padding: 5px 10px;
+    border-radius: 0;
+}
+
+#custom-microphone.active {
+    color: @green;
+}
+
+#custom-microphone.muted {
+    color: @red;
+}
+
+/* System */
+
+#cpu,
+#memory {
+    padding: 5px 10px;
+    border-radius: 0;
+}
+
+#cpu {
+    color: @purple;
+}
+
+#memory {
+    color: @green;
+}
+
+/* Updates */
+
+#custom-updates {
+    color: @yellow;
+    padding: 5px 10px;
+    border-radius: 0;
+}
+
+/* Hyprland submap */
+
+#submap {
+    background: @red;
+    color: #1a1b26;
+    padding: 5px 12px;
+    border-radius: 0;
+}
+
+/* Bluetooth */
+
+#bluetooth {
+    color: @cyan;
+    padding: 5px 12px;
+    border-radius: 0;
+}
+
+/* Network */
+
+#network {
+    color: @blue;
+    padding: 5px 12px;
+    border-radius: 0;
+}
+
+/* System tray */
+
+#tray {
+    padding: 5px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Notifications */
+
+#custom-notifications {
+    color: @yellow;
+    font-size: 20px;
+    padding: 5px 12px;
+    border-radius: 0;
+}
+
+/* Power */
+
+#custom-power {
+    color: @red;
+    font-size: 22px;
+    padding: 5px 14px;
+    border-radius: 0 12px 12px 0;
+    margin-right: 5px;
+}
+
+/* =====================
+   HOVER
+===================== */
+
+#custom-arch:hover,
+#clock:hover,
+#media:hover,
+#pulseaudio:hover,
+#pulseaudio-slider:hover,
+#custom-microphone:hover,
+#cpu:hover,
+#memory:hover,
+#custom-updates:hover,
+#submap:hover,
+#bluetooth:hover,
+#network:hover,
+#custom-notifications:hover,
+#custom-power:hover {
+    background: linear-gradient(90deg,
+        rgba(54,61,90,.98),
+        rgba(65,72,105,.98));
+    border-color: rgba(122,162,247,.45);
+}
+
+#workspaces button:hover {
+    background: rgba(122, 162, 247, .16);
+}
+
+/* =====================
+   ARCH
+===================== */
+
+#custom-arch {
+    color: @blue;
+    font-size: 24px;
+    padding: 5px 15px;
+}
+
+#custom-arch:hover {
+    color: @cyan;
+}
+
+/* =====================
+   WORKSPACES
+===================== */
+
+#workspaces {
+    padding: 0 8px;
+}
+
+#workspaces button {
+    color: @muted;
+    background: transparent;
+    border-radius: 10px;
+    margin: 3px;
+    padding: 4px 12px;
+    transition: all .2s ease;
+}
+
+#workspaces button.active {
+    background: @blue;
+    color: #1a1b26;
+}
+
+#workspaces button.urgent {
+    background: @red;
+    color: #1a1b26;
+}
+
+/* =====================
+   CLOCK
+===================== */
+
+#clock {
+    color: @cyan;
+}
+
+/* =====================
+   MPRIS
+===================== */
+
+#mpris {
+    background: linear-gradient(90deg,
+        rgba(36,40,59,.98),
+        rgba(48,54,77,.98));
+
+    color: @fg;
+
+    border-radius: 14px;
+
+    padding: 5px 16px;
+
+    margin: 6px 5px;
+
+    border: 1px solid rgba(122,162,247,.18);
+
+    transition: all .25s ease;
+}
+
+#mpris:hover {
+    background: linear-gradient(90deg,
+        rgba(54,61,90,.98),
+        rgba(65,72,105,.98));
+
+    border-color: rgba(122,162,247,.45);
+}
+
+/* Playing */
+
+#mpris.playing {
+    color: @green;
+}
+
+/* Paused */
+
+#mpris.paused {
+    color: @muted;
+    opacity: .75;
+}
+
+/* Stopped */
+
+#mpris.stopped {
+    color: @muted;
+    opacity: .55;
+}
+
+/* Spotify */
+
+#mpris.spotify {
+    color: #1DB954;
+}
+
+/* Firefox */
+
+#mpris.firefox {
+    color: #ff9e64;
+}
+
+/* Chromium */
+
+#mpris.chromium {
+    color: @blue;
+}
+
+/* VLC */
+
+#mpris.vlc {
+    color: #ff8800;
+}
+
+/* MPV */
+
+#mpris.mpv {
+    color: @purple;
+}
+
+/* =====================
+   TOOLTIPS
+===================== */
+
+tooltip {
+    background: #1a1b26;
+    border-radius: 10px;
+    border: 1px solid rgba(122, 162, 247, .25);
+}
+
+tooltip label {
+    color: @fg;
+}

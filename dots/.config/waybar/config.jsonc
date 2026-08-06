@@ -1,0 +1,165 @@
+{
+    "layer": "top",
+
+    "modules-left": [
+        "custom/arch",
+        "hyprland/workspaces",
+        "mpris"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "tray",
+        "hyprland/submap",
+        "group/volume",
+        "custom/microphone",
+        "cpu",
+        "memory",
+        "custom/updates",
+        "custom/notifications",
+        "custom/power"
+    ],
+
+    "hyprland/window": {
+        "max-length": 50
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "all-outputs": true,
+        "active-only": false
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8,
+        "show-passive-items": true
+    },
+
+    "custom/notifications": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "swaync-client -t",
+        "on-click-right": "swaync-client -C",
+        "exec": "echo",
+        "interval": 3600
+    },
+
+    "clock": {
+        "format": "󰥔 {:%H:%M  %d.%m.%Y}",
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "format": {
+                "today": "<span color='#7aa2f7'><b>{}</b></span>"
+            }
+        }
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+    "custom/microphone": {
+        "exec": "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ 2>/dev/null | awk '{if ($3 == \"[MUTED]\") print \"\\nMicrophone muted\\nmuted\"; else print \"\\nMicrophone active\\nactive\"}'",
+        "format": "{text}",
+        "hide-empty-text": true,
+        "interval": 2,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "󰍛 {percentage}%",
+        "interval": 10,
+        "tooltip": false
+    },
+
+    "custom/updates": {
+        "exec": "pacman -Qu 2>/dev/null | awk 'END { if (NR) print NR }'",
+        "format": "󰏗 {text}",
+        "hide-empty-text": true,
+        "interval": 3600,
+        "tooltip-format": "Package updates: {text}",
+        "on-click": "kitty -e paru"
+    },
+
+    "group/volume": {
+        "orientation": "horizontal",
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+
+    "mpris": {
+        "player": "playerctld",
+
+        "format": "{status_icon} {player_icon}  {dynamic}",
+        "format-paused": "{status_icon} {player_icon}  {dynamic}",
+
+        "dynamic-len": 40,
+        "dynamic-order": [
+            "title",
+            "artist"
+        ],
+
+        "tooltip": true,
+        "tooltip-format": "Title: {title}\nArtist: {artist}\nAlbum: {album}",
+
+        "player-icons": {
+            "default": "󰎈",
+            "spotify": "",
+            "firefox": "󰈹",
+            "chromium": "",
+            "mpv": "󰐹",
+            "vlc": "󰕼"
+        },
+
+        "status-icons": {
+            "playing": "󰐊",
+            "paused": "󰏤",
+            "stopped": "󰓛"
+        },
+
+        "on-click": "playerctl play-pause",
+        "on-click-middle": "playerctl previous",
+        "on-click-right": "playerctl next",
+
+        "max-length": 45
+    },
+
+    "custom/arch": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "walker"
+    },
+
+    "custom/power": {
+        "format": "⏻",
+        "tooltip-format": "Power Menu",
+        "on-click": "wlogout"
+    }
+}

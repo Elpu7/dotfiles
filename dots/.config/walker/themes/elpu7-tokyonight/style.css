@@ -1,0 +1,113 @@
+@define-color window_bg_color #1a1b26;
+@define-color surface_color #24283b;
+@define-color accent_bg_color #7aa2f7;
+@define-color accent_hover #89b4fa;
+@define-color theme_fg_color #c0caf5;
+@define-color theme_subtext_color #7f849c;
+@define-color border_color rgba(122,162,247,0.20);
+
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font";
+    color: @theme_fg_color;
+}
+
+.box-wrapper {
+    background: alpha(@window_bg_color, 0.94);
+
+    border-radius: 18px;
+    border: 1px solid @border_color;
+
+    padding: 18px;
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,.45);
+}
+
+.search-container {
+    margin-bottom: 12px;
+}
+
+.input {
+    background: @surface_color;
+
+    border-radius: 14px;
+
+    padding: 14px 16px;
+
+    color: @theme_fg_color;
+
+    caret-color: @accent_bg_color;
+}
+
+.input:focus {
+    border: 2px solid @accent_bg_color;
+}
+
+.input placeholder {
+    color: @theme_subtext_color;
+}
+
+.list {
+    background: transparent;
+}
+
+.item-box {
+    border-radius: 12px;
+
+    padding: 10px 12px;
+
+    transition: 150ms;
+}
+
+child:hover .item-box {
+    background: alpha(@accent_hover, .12);
+}
+
+child:selected .item-box {
+    background: alpha(@accent_bg_color, .22);
+}
+
+.item-text {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.item-subtext {
+    font-size: 13px;
+    color: @theme_subtext_color;
+}
+
+.item-image {
+    margin-right: 12px;
+}
+
+.large-icons {
+    -gtk-icon-size: 34px;
+}
+
+.normal-icons {
+    -gtk-icon-size: 22px;
+}
+
+.item-quick-activation {
+    background: alpha(@accent_bg_color, .15);
+
+    border-radius: 8px;
+
+    padding: 4px 8px;
+}
+
+.preview {
+    background: alpha(@surface_color, .5);
+
+    border-radius: 12px;
+
+    border: 1px solid @border_color;
+
+    padding: 12px;
+}
+
+scrollbar {
+    opacity: 0;
+}
