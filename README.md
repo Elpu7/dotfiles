@@ -106,14 +106,6 @@ Special thanks to the maintainers and contributors of the software used in this 
 
 ---
 
-## License
-
-This repository is licensed under the [MIT License](LICENSE).
-
-You may use, modify and redistribute the configuration files. Attribution is appreciated but not required.
-
----
-
 <div align="center">
 
 Made with Arch Linux, Hyprland and an unreasonable amount of configuration.
